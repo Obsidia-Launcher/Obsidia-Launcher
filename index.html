@@ -16,8 +16,8 @@
     }
     .gallery-img {
         display: block;
-        max-width: 100%;
-        height: auto;
+        width: 320px;
+        height: 200px;
         box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         border-radius: 10px;
         transition: 
@@ -26,9 +26,9 @@
             filter 0.2s cubic-bezier(.4,2,.6,1);
         background: #fff;
         margin: 0;
-        object-fit: contain;
-        /* Let image take its natural size, but limit max size for layout */
-        max-height: 300px;
+        object-fit: cover;
+        aspect-ratio: 16/10;
+        /* Ensures images fill their box and align horizontally */
     }
     .gallery-img:hover {
         box-shadow: 0 6px 24px 0 rgba(0,0,0,0.18), 0 1.5px 8px 0 rgba(0,0,0,0.12);
@@ -41,7 +41,10 @@
             gap: 10px;
         }
         .gallery-img {
-            max-height: 180px;
+            width: 100vw;
+            max-width: 98vw;
+            height: 120px;
+            aspect-ratio: 16/10;
         }
     }
     </style>
