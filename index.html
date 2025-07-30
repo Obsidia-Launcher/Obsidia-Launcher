@@ -6,48 +6,6 @@
     <title>Download Card & Gallery</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles.css">
-    <style>
-    .gallery-images {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-        justify-content: center;
-        align-items: flex-start;
-    }
-    .gallery-img {
-        display: block;
-        width: 320px;
-        height: 200px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        border-radius: 10px;
-        transition: 
-            box-shadow 0.2s cubic-bezier(.4,2,.6,1),
-            transform 0.2s cubic-bezier(.4,2,.6,1),
-            filter 0.2s cubic-bezier(.4,2,.6,1);
-        background: #fff;
-        margin: 0;
-        object-fit: cover;
-        aspect-ratio: 16/10;
-        /* Ensures images fill their box and align horizontally */
-    }
-    .gallery-img:hover {
-        box-shadow: 0 6px 24px 0 rgba(0,0,0,0.18), 0 1.5px 8px 0 rgba(0,0,0,0.12);
-        filter: brightness(1.15) saturate(1.1);
-        transform: scale(1.07);
-        z-index: 2;
-    }
-    @media (max-width: 700px) {
-        .gallery-images {
-            gap: 10px;
-        }
-        .gallery-img {
-            width: 100vw;
-            max-width: 98vw;
-            height: 120px;
-            aspect-ratio: 16/10;
-        }
-    }
-    </style>
 </head>
 <body>
     <button id="darkModeToggle" aria-label="Toggle dark mode">Toggle Dark Mode</button>
@@ -66,9 +24,9 @@
     <section class="gallery">
         <h2>Gallery</h2>
         <div class="gallery-images">
-            <img src="assets/gallery/img1.png" alt="Gallery Image 1" class="gallery-img">
-            <img src="assets/gallery/img2.jpg" alt="Gallery Image 2" class="gallery-img">
-            <img src="assets/gallery/img3.jpg" alt="Gallery Image 3" class="gallery-img">
+            <img src="assets/gallery/img1.png" alt="Gallery Image 1">
+            <img src="assets/gallery/img2.jpg" alt="Gallery Image 2">
+            <img src="assets/gallery/img3.jpg" alt="Gallery Image 3">
             <!-- Add more images if needed -->
         </div>
     </section>
