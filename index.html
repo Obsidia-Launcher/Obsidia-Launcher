@@ -14,25 +14,55 @@
             justify-content: center;
             align-items: flex-start;
         }
+        
         .gallery-images img {
             display: block;
             height: auto;
-            max-width: 270px;
-            max-height: 210px;
-            width: auto;
+            width: 100%;
+            max-width: 100%;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
             border-radius: 12px;
             background: #2222;
             transition: transform 0.22s cubic-bezier(.4,2,.6,1), box-shadow 0.22s, filter 0.22s;
             margin: 0 auto;
         }
+        .gallery-images .gallery-img-random {
+            flex: 1 1 28%;
+            max-width: 32%;
+            min-width: 180px;
+            max-height: 320px;
+            aspect-ratio: 4/3;
+        }
+        @media (max-width: 900px) {
+            .gallery-images .gallery-img-random {
+                flex-basis: 45%;
+                max-width: 48%;
+            }
+        }
+        @media (max-width: 600px) {
+            .gallery-images .gallery-img-random {
+                flex-basis: 90%;
+                max-width: 100%;
+            }
+        }
         .gallery-images img:hover {
-            transform: scale(1.08);
+            transform: scale(1.09);
             box-shadow: 0 4px 22px 0 rgba(0,0,0,0.17), 0 0 0 4px #fff7, 0 0 14px 3px #fff3;
             filter: brightness(1.15) saturate(1.09);
             z-index: 2;
         }
     </style>
+    </style>
+        // Assign random sizes to gallery images on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const imgs = document.querySelectorAll('.gallery-images img');
+            imgs.forEach(img => {
+                // Random width between 180px and 320px
+                const w = Math.floor(Math.random() * (320 - 180 + 1)) + 180;
+                img.style.width = w + 'px';
+                img.classList.add('gallery-img-random');
+            });
+        });
 </head>
 <body>
     <button id="darkModeToggle" aria-label="Toggle dark mode">Toggle Dark Mode</button>
