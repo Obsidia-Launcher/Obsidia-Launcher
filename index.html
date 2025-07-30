@@ -6,63 +6,6 @@
     <title>Download Card & Gallery</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles.css">
-    <style>
-        .gallery-images {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.2rem;
-            justify-content: center;
-            align-items: flex-start;
-        }
-        
-        .gallery-images img {
-            display: block;
-            height: auto;
-            width: 100%;
-            max-width: 100%;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            border-radius: 12px;
-            background: #2222;
-            transition: transform 0.22s cubic-bezier(.4,2,.6,1), box-shadow 0.22s, filter 0.22s;
-            margin: 0 auto;
-        }
-        .gallery-images .gallery-img-random {
-            flex: 1 1 30%;
-            max-width: 34%;
-            min-width: 120px;
-            max-height: 220px;
-            aspect-ratio: 4/3;
-        }
-        @media (max-width: 900px) {
-            .gallery-images .gallery-img-random {
-                flex-basis: 45%;
-                max-width: 48%;
-            }
-        }
-        @media (max-width: 600px) {
-            .gallery-images .gallery-img-random {
-                flex-basis: 90%;
-                max-width: 100%;
-            }
-        }
-        .gallery-images img:hover {
-            transform: scale(1.09);
-            box-shadow: 0 4px 22px 0 rgba(0,0,0,0.17), 0 0 0 4px #fff7, 0 0 14px 3px #fff3;
-            filter: brightness(1.15) saturate(1.09);
-            z-index: 2;
-        }
-    </style>
-    </style>
-        // Assign random flex-basis to gallery images on page load for dynamic sizing
-        document.addEventListener('DOMContentLoaded', function() {
-            const imgs = document.querySelectorAll('.gallery-images img');
-            imgs.forEach(img => {
-                // Random flex-basis between 28% and 32%
-                const percent = (Math.random() * 4 + 28).toFixed(2);
-                img.style.flexBasis = percent + '%';
-                img.classList.add('gallery-img-random');
-            });
-        });
 </head>
 <body>
     <button id="darkModeToggle" aria-label="Toggle dark mode">Toggle Dark Mode</button>
@@ -126,6 +69,18 @@
             const isDark = document.body.classList.toggle('dark-mode');
             setCookie('theme', isDark ? 'dark' : 'light', 365);
         };
+
+        // Randomly size gallery images within a threshold on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            const images = document.querySelectorAll('.gallery-images img');
+            images.forEach(img => {
+                // Set random width and height within thresholds (e.g., 120-220px)
+                const min = 120, max = 220;
+                const size = Math.floor(Math.random() * (max - min + 1)) + min;
+                img.style.width = size + 'px';
+                img.style.height = 'auto';
+            });
+        });
     </script>
 </body>
 </html>
