@@ -1,0 +1,125 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f4f4f4;
+    color: #222;
+    transition: background 0.3s, color 0.3s;
+}
+
+#darkModeToggle {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 100;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    background: #222;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.card {
+    background: url('assets/backgrounds/Download-Card.png') center/cover no-repeat;
+    width: 100vw;
+    min-height: 220px;
+    padding: 48px 0 48px 0;
+    border-radius: 0;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+.card-title {
+    margin-bottom: 24px;
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #222; /* Dark text for light mode */
+}
+
+.download-btn {
+    display: inline-block;
+    padding: 14px 36px;
+    background: #222;
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: background 0.2s;
+    border: none;
+}
+
+.download-btn:hover {
+    background: #444;
+}
+
+.info, .gallery {
+    width: 100vw;
+    max-width: none;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+    background: #fff;
+    padding: 40px 0;
+}
+
+.info {
+    text-align: center;
+}
+
+.gallery {
+    text-align: center;
+}
+
+.gallery-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-rows: repeat(2, 200px);
+    gap: 20px;
+    justify-items: center;
+    align-items: center;
+    margin-top: 24px;
+    width: 100vw;
+}
+
+.gallery-images img {
+    width: 90%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.10);
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background: #181818;
+    color: #eee;
+}
+
+body.dark-mode .card {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.35);
+}
+
+body.dark-mode .info,
+body.dark-mode .gallery {
+    background: #222;
+    color: #eee;
+}
+
+body.dark-mode #darkModeToggle {
+    background: #eee;
+    color: #222;
+}
+
+body.dark-mode .download-btn {
+    background: #eee;
+    color: #222;
+}
+
+body.dark-mode .download-btn:hover {
+    background: #bbb;
+}
+
+body.dark-mode .card-title {
+    color: #fff; /* Light text for dark mode */
+}
